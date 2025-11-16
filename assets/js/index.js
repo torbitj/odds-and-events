@@ -1,6 +1,6 @@
 const state = {
   // Number bank
-  bank: [32, 10, 15],
+  bank: [],
   // Odd numbers
   odd: [],
   // Even numbers
@@ -117,6 +117,7 @@ const SortAll = () => {
 const RandomNumBtn = () => {
   const $addRandomBtn = document.createElement(`button`);
   $addRandomBtn.classList.add(`add-btn`);
+  $addRandomBtn.innerHTML = `Add Randome Number`;
   $addRandomBtn.addEventListener("click", (event) => {
     randomNum();
   })
