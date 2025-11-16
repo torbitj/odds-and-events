@@ -1,6 +1,6 @@
 const state = {
   // Number bank
-  bank: [32, 10, 15],
+  bank: [],
   // Odd numbers
   odd: [],
   // Even numbers
@@ -12,6 +12,19 @@ const state = {
 const addTobank = (num) => {
   state.bank.push(num);
   render();
+}
+// Add random number to bank
+const randomNum = () => {
+  // Create max and min
+  const maxMin = {
+    min: -1000,
+    max: 1000
+  }
+  // Destructure to assign variables
+  const { min, max } = maxMin;
+  // Calculate random number and call add to bank
+  const randNum = Math.floor(Math.random() * (max - min + 1)) + min;
+  addTobank(randNum);
 }
 // Sort one number from bank to even or odd
 const sortOneNum = () => {
@@ -51,9 +64,9 @@ const NumberForm = () => {
   $form.innerHTML = `
   <label>
     Add a number to bank:
-    <input name="new-number" type="number" />
+    <input id="input" name="new-number" type="number" />
   </label>
-  <button id="add-btn" type="submit">Add Number</button>
+  <button class="add-btn" type="submit">Add Number</button>
   `;
   // Add event listener
   $form.addEventListener("submit", (event) => {
@@ -100,6 +113,16 @@ const SortAll = () => {
   // Return button element
   return $sortAllButton;
 }
+// Generate random number button
+const RandomNumBtn = () => {
+  const $addRandomBtn = document.createElement(`button`);
+  $addRandomBtn.classList.add(`add-btn`);
+  $addRandomBtn.innerHTML = `Add Randome Number`;
+  $addRandomBtn.addEventListener("click", (event) => {
+    randomNum();
+  })
+  return $addRandomBtn;
+}
 // Create a number bank list
 const NumberList = (name) => {
   // Create unordered list
@@ -127,7 +150,8 @@ const render = () => {
   $app.innerHTML = `
   <h1>Odds and Events</h1>
   <section id="form-and-btns">
-    <FormInput id="number-form"></FormInput><Sort1></Sort1><SortAll></SortAll>
+    <FormInput id="number-form"></FormInput>
+    <AddRandom></AddRandom><Sort1></Sort1><SortAll></SortAll>
   </section>
   <h2>Bank</h2>
   <NumberBank></NumberBank>
@@ -142,6 +166,7 @@ const render = () => {
   document.querySelector(`NumberBank`).replaceWith(NumberList(`bank`));
   document.querySelector(`OddNumbers`).replaceWith(NumberList(`odd`));
   document.querySelector(`EvenNumbers`).replaceWith(NumberList(`even`));
+  document.querySelector(`AddRandom`).replaceWith(RandomNumBtn());
 }
 
 render();
