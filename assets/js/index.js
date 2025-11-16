@@ -12,7 +12,7 @@ const state = {
 const sortOneNum = () => {
   const numToSort = state.bank.shift();
   // If odd update odd state
-  if (numToSort % 2 === 1) {
+  if (numToSort % 2 !== 0) {
     state.odd.push(numToSort);
   }
   // If even update even state
@@ -30,12 +30,30 @@ const sortAll = () => {
   }
 }
 
+// Component Functions
+const NumberForm = () => {
+  const $form = document.createElement(`form`);
+  $form.innerHTML = `
+  <label>
+    Add a number to bank:
+    <input name="new-number" type="number" />
+  </label>
+  <button id="add" type="submit">Add Number</button>
+  `;
+  $form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const newNum = Number(formData.get(`new-number`));
+    addTobank(newNum);
+  });
+  return $form;
+}
+
 const render = () => {
   const $app = document.querySelector(`#app`);
   $app.innerHTML = `
   <h1>Odds and Events</h1>
-  <p>Add a numToSort to the bank</p>
-  <FormInput></FormInput>
+  <FormInput id="number-form"></FormInput><Sort1></Sort1><SortAll></SortAll>
   <h2>Bank</h2>
   <NumberBank></NumberBank>
   <h2>Odds</h2>
@@ -43,10 +61,10 @@ const render = () => {
   <h2>Evens</h2>
   <EvenNumbers></EvenNumbers>`;
 
+  document.querySelector(`#number-form`).replaceWith(NumberForm());
 }
 
 render();
 sortOneNum()
 console.log(state)
 sortAll()
-console.log(state)
