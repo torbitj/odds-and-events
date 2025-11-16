@@ -105,8 +105,9 @@ const SortAll = () => {
 const NumberList = (name) => {
   // Create unordered list
   const $list = document.createElement(`ul`);
+  // Create list item variable
   let listItems = null;
-  console.log(name)
+  // Conditional to create list items for each state variable
   if (name === `bank`) {
     listItems = createLIs(state.bank);
   }
@@ -117,6 +118,7 @@ const NumberList = (name) => {
     listItems = createLIs(state.even);
   }
   $list.innerHTML = listItems.join(``);
+  // Return the new list
   return $list;
 }
 // Render new elements to the DOM
