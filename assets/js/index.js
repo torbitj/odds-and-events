@@ -39,8 +39,11 @@ const sortAllNum = () => {
 }
 
 // Component Functions
+// Form Component
 const NumberForm = () => {
+  // Create form element
   const $form = document.createElement(`form`);
+  // Fill form element
   $form.innerHTML = `
   <label>
     Add a number to bank:
@@ -48,41 +51,54 @@ const NumberForm = () => {
   </label>
   <button id="add-btn" type="submit">Add Number</button>
   `;
+  // Add event listener
   $form.addEventListener("submit", (event) => {
+    // Prevent page from refreshing
     event.preventDefault();
+    // Variables to store input value
     const formData = new FormData(event.target);
     const input = formData.get(`new-number`);
+    // Cannot input empty string
     if (input === ``) {
       return;
     }
+    // Convert to number and add to the bank state variable
     const newNum = Number(input);
     addTobank(newNum);
 
   });
+  // Return form element
   return $form;
 }
-
+// Sort one button component
 const SortOne = () => {
+  // Create new button element and add class
   const $sortOneButton = document.createElement(`button`);
   $sortOneButton.classList.add(`sort-btn`);
   $sortOneButton.innerHTML = `Sort 1`;
+  // Call sort one function when clicked
   $sortOneButton.addEventListener("click", (event) => {
     sortOneNum();
   });
+  // Return button element
   return $sortOneButton;
 }
-
+// Sort all button component
 const SortAll = () => {
+  // Create new button element and add class
   const $sortAllButton = document.createElement(`button`);
   $sortAllButton.classList.add(`sort-btn`);
   $sortAllButton.innerHTML = `Sort All`;
+  // Call sort all function when clicked
   $sortAllButton.addEventListener("click", (event) => {
     sortAllNum();
   });
+  // Return button element
   return $sortAllButton;
 }
-
+// Render new elements to the DOM
 const render = () => {
+  // Select the main using id app
   const $app = document.querySelector(`#app`);
   $app.innerHTML = `
   <h1>Odds and Events</h1>
@@ -95,10 +111,10 @@ const render = () => {
   <OddNumbers></OddNumbers>
   <h2>Evens</h2>
   <EvenNumbers></EvenNumbers>`;
-
+  // Replace placeholders with component functions
   document.querySelector(`#number-form`).replaceWith(NumberForm());
   document.querySelector(`Sort1`).replaceWith(SortOne());
-  document.querySelector(`SortAll`).replaceWith(SortAll())
+  document.querySelector(`SortAll`).replaceWith(SortAll());
 }
 
 render();
