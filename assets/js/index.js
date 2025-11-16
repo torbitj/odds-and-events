@@ -44,7 +44,7 @@ const NumberForm = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const newNum = Number(formData.get(`new-number`));
-    addToban(newNum);
+    addTobank(newNum);
   });
   return $form;
 }
