@@ -36,14 +36,15 @@ const NumberForm = () => {
   $form.innerHTML = `
   <label>
     Add a number to bank:
-    <input name="new-number" type="number />
+    <input name="new-number" type="number" />
   </label>
-  <button id="add">Add Number</button>
+  <button id="add" type="submit">Add Number</button>
   `;
   $form.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const newNum = formData.get(`new-number`);
+    const newNum = Number(formData.get(`new-number`));
+    console.log(newNum);
     state.bank.push(newNum);
   });
   return $form;
@@ -61,10 +62,10 @@ const render = () => {
   <h2>Evens</h2>
   <EvenNumbers></EvenNumbers>`;
 
+  document.querySelector(`#number-form`).replaceWith(NumberForm());
 }
 
 render();
 sortOneNum()
 console.log(state)
 sortAll()
-console.log(-5 % 2)
