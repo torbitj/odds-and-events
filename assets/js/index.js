@@ -8,7 +8,7 @@ const state = {
 }
 
 // Helper Functions
-// Add number to bank array
+// Add number to bank name
 const addTobank = (num) => {
   state.bank.push(num);
   render();
@@ -37,7 +37,11 @@ const sortAllNum = () => {
     sortOneNum();
   }
 }
-
+// Create LIs for the corresponding list
+const createLIs = (array) => {
+  const newLIs = array.map((num) => `<li>${num}</li>`);
+  return newLIs;
+}
 // Component Functions
 // Form Component
 const NumberForm = () => {
@@ -96,6 +100,26 @@ const SortAll = () => {
   // Return button element
   return $sortAllButton;
 }
+// Create a number bank list
+const NumberList = (name) => {
+  // Create unordered list
+  const $list = document.createElement(`ul`);
+  // Create list item variable
+  let listItems = null;
+  // Conditional to create list items for each state variable
+  if (name === `bank`) {
+    listItems = createLIs(state.bank);
+  }
+  else if (name === `odd`) {
+    listItems = createLIs(state.odd);
+  }
+  else {
+    listItems = createLIs(state.even);
+  }
+  $list.innerHTML = listItems.join(``);
+  // Return the new list
+  return $list;
+}
 // Render new elements to the DOM
 const render = () => {
   // Select the main using id app
@@ -115,6 +139,9 @@ const render = () => {
   document.querySelector(`#number-form`).replaceWith(NumberForm());
   document.querySelector(`Sort1`).replaceWith(SortOne());
   document.querySelector(`SortAll`).replaceWith(SortAll());
+  document.querySelector(`NumberBank`).replaceWith(NumberList(`bank`));
+  document.querySelector(`OddNumbers`).replaceWith(NumberList(`odd`));
+  document.querySelector(`EvenNumbers`).replaceWith(NumberList(`even`));
 }
 
 render();
