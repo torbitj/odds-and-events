@@ -7,6 +7,7 @@ const state = {
   even: []
 }
 
+// Helper Functions
 // Sort one number from bank to even or odd
 const sortOneNum = () => {
   const numToSort = state.bank.shift();
@@ -21,9 +22,12 @@ const sortOneNum = () => {
   // Re render the page with updated state
   render();
 }
-
+// Sort all numbers in bank
 const sortAll = () => {
-  
+  // While the length is greater than zero sort the numbers
+  while (state.bank.length > 0) {
+    sortOneNum();
+  }
 }
 
 const render = () => {
