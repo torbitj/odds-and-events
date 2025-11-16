@@ -98,9 +98,9 @@ const SortAll = () => {
 }
 
 const NumberBank = () => {
-  const $bank = document.createElement(`ul`);
+  const $bank = document.createElement(`section`);
   $bank.id = `number-bank`;
-  const numberLIs = state.bank.map((num) => `<li>${num}</li>`);
+  const numberLIs = state.bank.map((num) => `<p>${num}</p>`);
   $bank.innerHTML = numberLIs.join(`  `);
   return $bank;
 }
