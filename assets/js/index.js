@@ -64,7 +64,7 @@ const NumberForm = () => {
   $form.innerHTML = `
   <label>
     Add a number to bank:
-    <input name="new-number" type="number" />
+    <input id="input" name="new-number" type="number" />
   </label>
   <button class="add-btn" type="submit">Add Number</button>
   `;
@@ -117,7 +117,10 @@ const SortAll = () => {
 const RandomNumBtn = () => {
   const $addRandomBtn = document.createElement(`button`);
   $addRandomBtn.classList.add(`add-btn`);
-  
+  $addRandomBtn.addEventListener("click", (event) => {
+    randomNum();
+  })
+  return $addRandomBtn;
 }
 // Create a number bank list
 const NumberList = (name) => {
@@ -147,7 +150,7 @@ const render = () => {
   <h1>Odds and Events</h1>
   <section id="form-and-btns">
     <FormInput id="number-form"></FormInput>
-    <Sort1></Sort1><SortAll></SortAll><AddRandom></AddRandom>
+    <AddRandom></AddRandom><Sort1></Sort1><SortAll></SortAll>
   </section>
   <h2>Bank</h2>
   <NumberBank></NumberBank>
@@ -162,6 +165,7 @@ const render = () => {
   document.querySelector(`NumberBank`).replaceWith(NumberList(`bank`));
   document.querySelector(`OddNumbers`).replaceWith(NumberList(`odd`));
   document.querySelector(`EvenNumbers`).replaceWith(NumberList(`even`));
+  document.querySelector(`AddRandom`).replaceWith(RandomNumBtn());
 }
 
 render();
