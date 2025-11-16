@@ -64,7 +64,7 @@ const NumberForm = () => {
   $form.innerHTML = `
   <label>
     Add a number to bank:
-    <input id="input" name="new-number" type="number" />
+    <input id="input" name="new-numbers" />
   </label>
   <button class="add-btn" type="submit">Add Number</button>
   `;
@@ -79,9 +79,16 @@ const NumberForm = () => {
     if (input === ``) {
       return;
     }
+    else {
+      const numArray = input.split(`,`);
+    }
     // Convert to number and add to the bank state variable
-    const newNum = Number(input);
-    addTobank(newNum);
+    if (numArray.length === 1) {
+      let newNum = Number(numArray[0]);
+      addTobank(newNum);
+    } else {
+
+    }
 
   });
   // Return form element
