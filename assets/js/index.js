@@ -31,7 +31,7 @@ const sortOneNum = () => {
   render();
 }
 // Sort all numbers in bank
-const sortAll = () => {
+const sortAllNum = () => {
   // While the length is greater than zero sort the numbers
   while (state.bank.length > 0) {
     sortOneNum();
@@ -77,7 +77,7 @@ const SortAll = () => {
   $sortAllButton.classList.add(`sort-btn`);
   $sortAllButton.innerHTML = `Sort All`;
   $sortAllButton.addEventListener("click", (event) => {
-    sortAll();
+    sortAllNum();
   });
   return $sortAllButton;
 }
@@ -98,6 +98,7 @@ const render = () => {
 
   document.querySelector(`#number-form`).replaceWith(NumberForm());
   document.querySelector(`Sort1`).replaceWith(SortOne());
+  document.querySelector(`SortAll`).replaceWith(SortAll())
 }
 
 render();
