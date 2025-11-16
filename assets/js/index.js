@@ -25,6 +25,7 @@ const sortOneNum = () => {
     state.even.push(numToSort);
   }
   // Re render the page with updated state
+  console.log(state);
   render();
 }
 // Sort all numbers in bank
@@ -33,6 +34,7 @@ const sortAll = () => {
   while (state.bank.length > 0) {
     sortOneNum();
   }
+  console.log(state);
 }
 
 // Component Functions
@@ -64,13 +66,16 @@ const SortOne = () => {
     }
     return;
   });
+  return $sortOneButton;
 }
 
 const render = () => {
   const $app = document.querySelector(`#app`);
   $app.innerHTML = `
   <h1>Odds and Events</h1>
-  <FormInput id="number-form"></FormInput><Sort1></Sort1><SortAll></SortAll>
+  <section id="form-and-btns">
+    <FormInput id="number-form"></FormInput><Sort1></Sort1><SortAll></SortAll>
+  </section>
   <h2>Bank</h2>
   <NumberBank></NumberBank>
   <h2>Odds</h2>
@@ -79,6 +84,7 @@ const render = () => {
   <EvenNumbers></EvenNumbers>`;
 
   document.querySelector(`#number-form`).replaceWith(NumberForm());
+  document.querySelector(`Sort1`).replaceWith(SortOne());
 }
 
 render();
