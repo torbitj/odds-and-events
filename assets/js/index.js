@@ -8,6 +8,11 @@ const state = {
 }
 
 // Helper Functions
+// Add number to bank array
+const addTobank = (num) => {
+  state.bank.push(num);
+  render();
+}
 // Sort one number from bank to even or odd
 const sortOneNum = () => {
   const numToSort = state.bank.shift();
@@ -65,6 +70,3 @@ const render = () => {
 }
 
 render();
-sortOneNum()
-console.log(state)
-sortAll()
