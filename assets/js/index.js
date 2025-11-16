@@ -12,7 +12,6 @@ const state = {
 const addTobank = (num) => {
   state.bank.push(num);
   render();
-  console.log(state)
 }
 // Sort one number from bank to even or odd
 const sortOneNum = () => {
