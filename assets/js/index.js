@@ -1,6 +1,6 @@
 const state = {
   // Number bank
-  bank: [],
+  bank: [32, 10, 15],
   // Odd numbers
   odd: [],
   // Even numbers
@@ -8,24 +8,29 @@ const state = {
 }
 
 // Sort one number from bank to even or odd
-const sortOneNum = (number) => {
+const sortOneNum = () => {
+  const numToSort = state.bank.shift();
   // If odd update odd state
-  if (number % 2 === 1) {
-    state.odd.push(number);
+  if (numToSort % 2 === 1) {
+    state.odd.push(numToSort);
   }
   // If even update even state
   else {
-    state.even.push(number);
+    state.even.push(numToSort);
   }
   // Re render the page with updated state
   render();
+}
+
+const sortAll = () => {
+  
 }
 
 const render = () => {
   const $app = document.querySelector(`#app`);
   $app.innerHTML = `
   <h1>Odds and Events</h1>
-  <p>Add a number to the bank</p>
+  <p>Add a numToSort to the bank</p>
   <FormInput></FormInput>
   <h2>Bank</h2>
   <NumberBank></NumberBank>
@@ -37,3 +42,7 @@ const render = () => {
 }
 
 render();
+sortOneNum()
+console.log(state)
+sortAll()
+console.log(state)
