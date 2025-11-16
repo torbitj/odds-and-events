@@ -1,3 +1,12 @@
+const state = {
+  // Number bank
+  bank: [],
+  // Odd numbers
+  odd: [],
+  // Even numbers
+  even: []
+}
+
 const render = () => {
   const $app = document.querySelector(`#app`);
   $app.innerHTML = `
