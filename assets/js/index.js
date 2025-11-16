@@ -15,11 +15,14 @@ const addTobank = (num) => {
 }
 // Add random number to bank
 const randomNum = () => {
+  // Create max and min
   const maxMin = {
     min: -1000,
     max: 1000
   }
+  // Destructure to assign variables
   const { min, max } = maxMin;
+  // Calculate random number and call add to bank
   const randNum = Math.floor(Math.random() * (max - min + 1)) + min;
   addTobank(randNum);
 }
@@ -137,7 +140,8 @@ const render = () => {
   $app.innerHTML = `
   <h1>Odds and Events</h1>
   <section id="form-and-btns">
-    <FormInput id="number-form"></FormInput><Sort1></Sort1><SortAll></SortAll>
+    <FormInput id="number-form"></FormInput>
+    <Sort1></Sort1><SortAll></SortAll>
   </section>
   <h2>Bank</h2>
   <NumberBank></NumberBank>
