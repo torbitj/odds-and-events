@@ -141,7 +141,7 @@ const render = () => {
   <h1>Odds and Events</h1>
   <section id="form-and-btns">
     <FormInput id="number-form"></FormInput>
-    <Sort1></Sort1><SortAll></SortAll>
+    <Sort1></Sort1><SortAll></SortAll><AddRandom></AddRandom>
   </section>
   <h2>Bank</h2>
   <NumberBank></NumberBank>
