@@ -96,6 +96,11 @@ const SortAll = () => {
   // Return button element
   return $sortAllButton;
 }
+
+const NumberBank = () => {
+  const $bank = document.createElement(`p`);
+  $bank.id(`number-bank`)
+}
 // Render new elements to the DOM
 const render = () => {
   // Select the main using id app
