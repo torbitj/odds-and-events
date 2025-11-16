@@ -25,7 +25,6 @@ const sortOneNum = () => {
     state.even.push(numToSort);
   }
   // Re render the page with updated state
-  console.log(state);
   render();
 }
 // Sort all numbers in bank
@@ -34,7 +33,6 @@ const sortAll = () => {
   while (state.bank.length > 0) {
     sortOneNum();
   }
-  console.log(state);
 }
 
 // Component Functions
@@ -50,8 +48,13 @@ const NumberForm = () => {
   $form.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const newNum = Number(formData.get(`new-number`));
+    const input = formData.get(`new-number`);
+    if (input === ``) {
+      return;
+    }
+    const newNum = Number(input);
     addTobank(newNum);
+
   });
   return $form;
 }
