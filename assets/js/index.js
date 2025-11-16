@@ -13,6 +13,10 @@ const addTobank = (num) => {
   state.bank.push(num);
   render();
 }
+// Add random number to bank
+const randomNum = () => {
+  
+}
 // Sort one number from bank to even or odd
 const sortOneNum = () => {
   if (state.bank.length < 1) {
