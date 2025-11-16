@@ -30,12 +30,17 @@ const sortAll = () => {
   }
 }
 
+// Component Functions
+const NumberForm = () => {
+  const $form = document.createElement(`form`);
+  $form.innerHTML = ``
+}
+
 const render = () => {
   const $app = document.querySelector(`#app`);
   $app.innerHTML = `
   <h1>Odds and Events</h1>
-  <p>Add a numToSort to the bank</p>
-  <FormInput></FormInput>
+  <FormInput id="number-form"></FormInput>
   <h2>Bank</h2>
   <NumberBank></NumberBank>
   <h2>Odds</h2>
