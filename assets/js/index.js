@@ -96,13 +96,25 @@ const SortAll = () => {
   // Return button element
   return $sortAllButton;
 }
-
-const NumberBank = () => {
-  const $bank = document.createElement(`section`);
-  $bank.id = `number-bank`;
-  const numberLIs = state.bank.map((num) => `<p>${num}</p>`);
-  $bank.innerHTML = numberLIs.join(`  `);
-  return $bank;
+// Create a number bank list
+const NumberList = (stateObj) => {
+  // Create unordered list
+  const $list = document.createElement(`ul`);
+  let listItems = null;
+  for (array in stateObj) {
+    console.log(array)
+    if (array === `bank`) {
+      listItems = createLIs(state.bank);
+    }
+    else if (array === `odd`) {
+      listItems = createLIs(state.odd);
+    }
+    else {
+      listItems = createLIs(state.even);
+    }
+  }
+  $list.innerHTML = listItems.join(``);
+  return $list;
 }
 // Render new elements to the DOM
 const render = () => {
@@ -123,7 +135,7 @@ const render = () => {
   document.querySelector(`#number-form`).replaceWith(NumberForm());
   document.querySelector(`Sort1`).replaceWith(SortOne());
   document.querySelector(`SortAll`).replaceWith(SortAll());
-  document.querySelector(`NumberBank`).replaceWith(NumberBank());
+  document.querySelector(`NumberBank`).replaceWith(NumberList(state));
 }
 
 render();
