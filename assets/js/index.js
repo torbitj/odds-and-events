@@ -44,8 +44,7 @@ const NumberForm = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const newNum = Number(formData.get(`new-number`));
-    console.log(newNum);
-    state.bank.push(newNum);
+    addToban(newNum);
   });
   return $form;
 }
