@@ -57,6 +57,13 @@ const NumberForm = () => {
 const SortOne = () => {
   const $sortOneButton = document.createElement(`button`);
   $sortOneButton.classList.add(`sort-one-btn`);
+  $sortOneButton.innerHTML = `Sort 1`;
+  $sortOneButton.addEventListener("click", (event) => {
+    if (state.bank.length > 0) {
+      sortOneNum();
+    }
+    return;
+  });
 }
 
 const render = () => {
