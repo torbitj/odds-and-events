@@ -66,7 +66,7 @@ const NumberForm = () => {
     Add a number to bank:
     <input name="new-number" type="number" />
   </label>
-  <button id="add-btn" type="submit">Add Number</button>
+  <button class="add-btn" type="submit">Add Number</button>
   `;
   // Add event listener
   $form.addEventListener("submit", (event) => {
@@ -112,6 +112,12 @@ const SortAll = () => {
   });
   // Return button element
   return $sortAllButton;
+}
+// Generate random number button
+const RandomNumBtn = () => {
+  const $addRandomBtn = document.createElement(`button`);
+  $addRandomBtn.classList.add(`add-btn`);
+  
 }
 // Create a number bank list
 const NumberList = (name) => {
