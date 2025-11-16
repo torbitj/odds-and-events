@@ -7,6 +7,17 @@ const state = {
   even: []
 }
 
+// Sort one number from bank to even or odd
+const sortOneNum = (number) => {
+  if (number % 2 === 1) {
+    state.odd.push(number);
+  }
+  else {
+    state.even.push(number);
+  }
+  render();
+}
+
 const render = () => {
   const $app = document.querySelector(`#app`);
   $app.innerHTML = `
