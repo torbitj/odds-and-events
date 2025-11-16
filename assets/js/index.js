@@ -43,7 +43,7 @@ const NumberForm = () => {
     Add a number to bank:
     <input name="new-number" type="number" />
   </label>
-  <button id="add" type="submit">Add Number</button>
+  <button id="add-btn" type="submit">Add Number</button>
   `;
   $form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -52,6 +52,11 @@ const NumberForm = () => {
     addTobank(newNum);
   });
   return $form;
+}
+
+const SortOne = () => {
+  const $sortOneButton = document.createElement(`button`);
+  $sortOneButton.classList.add(`sort-one-btn`);
 }
 
 const render = () => {
