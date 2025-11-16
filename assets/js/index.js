@@ -98,8 +98,11 @@ const SortAll = () => {
 }
 
 const NumberBank = () => {
-  const $bank = document.createElement(`p`);
-  $bank.id(`number-bank`)
+  const $bank = document.createElement(`ul`);
+  $bank.id = `number-bank`;
+  const numberLIs = state.bank.map((num) => `<li>${num}</li>`);
+  $bank.innerHTML = numberLIs.join(`  `);
+  return $bank;
 }
 // Render new elements to the DOM
 const render = () => {
@@ -120,6 +123,7 @@ const render = () => {
   document.querySelector(`#number-form`).replaceWith(NumberForm());
   document.querySelector(`Sort1`).replaceWith(SortOne());
   document.querySelector(`SortAll`).replaceWith(SortAll());
+  document.querySelector(`NumberBank`).replaceWith(NumberBank());
 }
 
 render();
