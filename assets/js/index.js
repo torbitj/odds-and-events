@@ -37,13 +37,12 @@ const sortAllNum = () => {
     sortOneNum();
   }
 }
-
-// Component Functions
 // Create LIs for the corresponding list
 const createLIs = (array) => {
   const newLIs = array.map((num) => `<li>${num}</li>`);
   return newLIs;
 }
+// Component Functions
 // Form Component
 const NumberForm = () => {
   // Create form element
