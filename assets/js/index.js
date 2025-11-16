@@ -15,6 +15,9 @@ const addTobank = (num) => {
 }
 // Sort one number from bank to even or odd
 const sortOneNum = () => {
+  if (state.bank.length < 1) {
+    return;
+  }
   const numToSort = state.bank.shift();
   // If odd update odd state
   if (numToSort % 2 !== 0) {
@@ -61,15 +64,22 @@ const NumberForm = () => {
 
 const SortOne = () => {
   const $sortOneButton = document.createElement(`button`);
-  $sortOneButton.classList.add(`sort-one-btn`);
+  $sortOneButton.classList.add(`sort-btn`);
   $sortOneButton.innerHTML = `Sort 1`;
   $sortOneButton.addEventListener("click", (event) => {
-    if (state.bank.length > 0) {
-      sortOneNum();
-    }
-    return;
+    sortOneNum();
   });
   return $sortOneButton;
+}
+
+const SortAll = () => {
+  const $sortAllButton = document.createElement(`button`);
+  $sortAllButton.classList.add(`sort-btn`);
+  $sortAllButton.innerHTML = `Sort All`;
+  $sortAllButton.addEventListener("click", (event) => {
+    sortAll();
+  });
+  return $sortAllButton;
 }
 
 const render = () => {
