@@ -43,15 +43,17 @@ const NumberForm = () => {
   $form.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-
-  })
+    const newNum = formData.get(`new-number`);
+    state.bank.push(newNum);
+  });
+  return $form;
 }
 
 const render = () => {
   const $app = document.querySelector(`#app`);
   $app.innerHTML = `
   <h1>Odds and Events</h1>
-  <FormInput id="number-form"></FormInput>
+  <FormInput id="number-form"></FormInput><Sort1></Sort1><SortAll></SortAll>
   <h2>Bank</h2>
   <NumberBank></NumberBank>
   <h2>Odds</h2>
