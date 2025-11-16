@@ -15,7 +15,13 @@ const addTobank = (num) => {
 }
 // Add random number to bank
 const randomNum = () => {
-  
+  const maxMin = {
+    min: -1000,
+    max: 1000
+  }
+  const { min, max } = maxMin;
+  const randNum = Math.floor(Math.random() * (max - min + 1)) + min;
+  addTobank(randNum);
 }
 // Sort one number from bank to even or odd
 const sortOneNum = () => {
