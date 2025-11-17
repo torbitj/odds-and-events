@@ -86,12 +86,12 @@ const NumberForm = () => {
     let inputArray = null;
     // Cannot input empty string
     if (input === ``) {
+      alert(`Cannot be empty!`)
       return;
     }
     else {
       inputArray = input.split(`,`);
     }
-    console.log(inputArray)
     // Validate if all numbers were passed in
     for (let i = 0; i < inputArray.length; i++) {
       const currVal = inputArray[i];
@@ -107,30 +107,6 @@ const NumberForm = () => {
   });
   // Return form element
   return $form;
-}
-// Sort form component
-const SortForm = () => {
-  const $sortForm = document.createElement(`form`);
-  $sortForm.innerHTML = `
-  <label>
-    How many numbers do you want to sort?
-    <input id="sort-input name="sort" type="number" min="1" />
-  </label>
-  <button class="add-btn" type="submit">Sort this many numbers</button>
-  `;
-  // Add event listener
-  $sortForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const inputNum = Number(formData.get(`sort`));
-    if (inputNum > state.bank.length) {
-      alert(`Cannot be greater than current bank!`);
-      render();
-      return;
-    }
-    sortManyTimes(inputNum);
-  });
-  return $sortForm;
 }
 // Sort one button component
 const SortOne = () => {
@@ -168,6 +144,44 @@ const RandomNumBtn = () => {
   })
   return $addRandomBtn;
 }
+// Sort form component
+const SortForm = () => {
+  // Create form element
+  const $sortForm = document.createElement(`form`);
+  // Create elements of form
+  $sortForm.innerHTML = `
+  <label>
+    How many numbers do you want to sort?
+    <input id="sort-input" name="sort" type="number" min="1" />
+  </label>
+  <button class="add-btn" type="submit">Sort this many numbers</button>
+  `;
+  // Add event listener
+  $sortForm.addEventListener("submit", (event) => {
+    // Prevent page refresh
+    event.preventDefault();
+    // Get form data and store in variable
+    const formData = new FormData(event.target);
+    let inputNum = formData.get(`sort`);
+    // Check for empty string
+    if (inputNum === ``) {
+      alert(`Cannot be empty!`)
+      return;
+    }
+    // Turn input into number
+    inputNum = Number(inputNum);
+    // Check if number is greater than available
+    if (inputNum > state.bank.length) {
+      alert(`Cannot be greater than current bank!`);
+      render();
+      return;
+    }
+    // Call sort function to sort input number of times
+    sortManyTimes(inputNum);
+  });
+  // Return the sort form
+  return $sortForm;
+}
 // Create a number bank list
 const NumberList = (name) => {
   // Create unordered list
@@ -199,7 +213,7 @@ const render = () => {
     <AddRandom></AddRandom><Sort1></Sort1><SortAll></SortAll>
   </section>
   <section>
-    <SortForm id="sort-form></SortForm>
+    <SortForm id="sort-form"></SortForm>
   <h2>Bank</h2>
   <NumberBank></NumberBank>
   <h2>Odds</h2>
@@ -214,6 +228,7 @@ const render = () => {
   document.querySelector(`OddNumbers`).replaceWith(NumberList(`odd`));
   document.querySelector(`EvenNumbers`).replaceWith(NumberList(`even`));
   document.querySelector(`AddRandom`).replaceWith(RandomNumBtn());
+  document.querySelector(`#sort-form`).replaceWith(SortForm());
 }
 
 render();
