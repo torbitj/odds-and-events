@@ -168,6 +168,8 @@ const render = () => {
     <FormInput id="number-form"></FormInput>
     <AddRandom></AddRandom><Sort1></Sort1><SortAll></SortAll>
   </section>
+  <section>
+    <SortForm id="sort-form></SortForm>
   <h2>Bank</h2>
   <NumberBank></NumberBank>
   <h2>Odds</h2>
