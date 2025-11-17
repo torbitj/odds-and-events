@@ -13,12 +13,24 @@ const state = {
 // Add number to bank name
 const addTobank = (num) => {
   state.bank.push(num);
+  orderList(state.order)
   console.log(state);
   render();
 }
 
-const orderList = (order) => {
-  state.order = order;
+const orderList = (newOrder) => {
+  state.order = newOrder;
+  const { order } = state;
+  for (array in state) {
+    if (array === `bank` || array === `odd` || array === `even`) {
+      if (order === `ascending`) {
+        state[array].sort((a, b) => a - b);
+      }
+      else {
+        state[array].sort((a, b) => b - a);
+      }
+    }
+  }
   render()
 }
 // Add random number to bank
@@ -165,6 +177,7 @@ const SortForm = () => {
   <label>
     Choose Ascending or Descending Order:
     <select name="order" id="order">
+      <option value="null"></option>
       <option value="ascending">Ascending</option>
       <option value="descending">Descending</option>
     </select>
@@ -195,8 +208,11 @@ const SortForm = () => {
   });
   const $selection = $sortForm.querySelector(`#order`);
   $selection.addEventListener("change", (event) => {
-    orderList(event.target.value);
-    console.log(state)
+    const order = event.target.value;
+    console.log(order);
+    if (order !== `null`) {
+      orderList(order);
+    }
   })
   // Return the sort form
   return $sortForm;
@@ -216,11 +232,6 @@ const NumberList = (name) => {
   }
   else {
     listItems = createLIs(state.even);
-  }
-  if (state.order === `ascending`) {
-    listItems.sort((a, b) => a - b);
-  } else {
-    listItems.sort((a, b) => b - a);
   }
   $list.innerHTML = listItems.join(``);
   // Return the new list
