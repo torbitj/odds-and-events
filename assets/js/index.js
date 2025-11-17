@@ -85,22 +85,18 @@ const NumberForm = () => {
     else {
       inputArray = input.split(`,`);
     }
+    console.log(inputArray)
     // Convert to number and add to the bank state variable
-    if (inputArray.length === 1) {
-      let newNum = Number(numArray[0]);
-      addTobank(newNum);
-    } else {
-      for (let i = 0; i < inputArray.length; i++) {
-        const currVal = inputArray[i];
-        if (isNaN(currVal)) {
-          alert(`${currVal} is not a number, please try again`);
-          render();
-          return;
-        }
+    for (let i = 0; i < inputArray.length; i++) {
+      const currVal = inputArray[i];
+      if (isNaN(currVal)) {
+        alert(`${currVal} is not a number, please try again`);
+        render();
+        return;
       }
-      const numArray = inputArray.map((num) => Number(num));
-      numArray.forEach((num) => addTobank(num));
     }
+    const numArray = inputArray.map((num) => Number(num));
+    numArray.forEach((num) => addTobank(num));
   });
   // Return form element
   return $form;
