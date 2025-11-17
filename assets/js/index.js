@@ -51,6 +51,12 @@ const sortAllNum = () => {
     sortOneNum();
   }
 }
+// Sort the number of times of the user's choice
+const sortManyTimes = (num) => {
+  for (let i = 0; i < num; i++) {
+    sortOneNum();
+  }
+}
 // Create LIs for the corresponding list
 const createLIs = (array) => {
   const newLIs = array.map((num) => `<li>${num}</li>`);
