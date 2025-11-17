@@ -19,10 +19,12 @@ label {
 
 ul {
   list-style-type: none;
+  padding: 1em;
   height: 3em;
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   background-color:  #2B5FDA;
   border-radius: 15px;
   color: #EBF0FF;
