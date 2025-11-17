@@ -87,8 +87,17 @@ select {
 }
 
 @media screen and (max-width: 798px) {
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+  }
+  
   #form-and-btns {
     flex-direction: column;
-    /* align-items: start; */
+  }
+  #form-and-btns form {
+    flex-direction: column;
   }
 }
