@@ -154,7 +154,15 @@ const SortForm = () => {
     How many numbers do you want to sort?
     <input id="sort-input" name="sort" type="number" min="1" />
   </label>
-  <button class="add-btn" type="submit">Sort this many numbers</button>
+  <button class="sort-btn" type="submit">Sort This Many Numbers</button>
+  <label>
+    Choose Ascending or Descending Order:
+    <select name="order" id="order">
+      <option value="ascending">Ascending</option>
+      <option value="descending">Descending</option>
+    </select>
+    <button id="ascend-btn" class="sort-btn" type="button">Reorder Numbers</button>
+  </label>
   `;
   // Add event listener
   $sortForm.addEventListener("submit", (event) => {
@@ -178,6 +186,12 @@ const SortForm = () => {
     }
     // Call sort function to sort input number of times
     sortManyTimes(inputNum);
+  });
+  const $orderButton = document.querySelector(`#ascend-btn`)
+  $orderButton.addEventListener("click", (event) => {
+    const formData = new FormData($sortForm);
+    const order = formData.get(`order`);
+    console.log(order);
   });
   // Return the sort form
   return $sortForm;
