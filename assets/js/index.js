@@ -257,7 +257,10 @@ const render = () => {
   <h2>Odds</h2>
   <OddNumbers></OddNumbers>
   <h2>Evens</h2>
-  <EvenNumbers></EvenNumbers>`;
+  <EvenNumbers></EvenNumbers>
+  <section id="clear">
+    <ClearButton></ClearButton
+  </section>`;
   // Replace placeholders with component functions
   document.querySelector(`#number-form`).replaceWith(NumberForm());
   document.querySelector(`Sort1`).replaceWith(SortOne());
