@@ -104,3 +104,10 @@ select {
     align-self: center;
   }
 }
+
+@media screen and (max-width: 680px) {
+  button,
+  form {
+    width: 100%;
+  }
+}
