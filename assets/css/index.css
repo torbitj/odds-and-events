@@ -1,3 +1,11 @@
 ul {
   list-style-type: none;
 }
+
+button {
+  margin: 3px;
+}
+
+#form-and-btns {
+  display: flex;
+}

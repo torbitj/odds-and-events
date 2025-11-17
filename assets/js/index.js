@@ -167,6 +167,7 @@ const RandomNumBtn = () => {
 const SortForm = () => {
   // Create form element
   const $sortForm = document.createElement(`form`);
+  $sortForm.id = `sort-form`;
   // Create elements of form
   $sortForm.innerHTML = `
   <label>
@@ -249,6 +250,7 @@ const render = () => {
   </section>
   <section>
     <SortForm id="sort-form"></SortForm>
+  </section>
   <h2>Bank</h2>
   <NumberBank></NumberBank>
   <h2>Odds</h2>
