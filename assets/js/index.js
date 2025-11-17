@@ -86,7 +86,7 @@ const NumberForm = () => {
       inputArray = input.split(`,`);
     }
     console.log(inputArray)
-    // Convert to number and add to the bank state variable
+    // Validate if all numbers were passed in
     for (let i = 0; i < inputArray.length; i++) {
       const currVal = inputArray[i];
       if (isNaN(currVal)) {
@@ -95,6 +95,7 @@ const NumberForm = () => {
         return;
       }
     }
+    // If valid, add to bank
     const numArray = inputArray.map((num) => Number(num));
     numArray.forEach((num) => addTobank(num));
   });
