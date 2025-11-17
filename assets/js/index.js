@@ -187,7 +187,8 @@ const SortForm = () => {
     // Call sort function to sort input number of times
     sortManyTimes(inputNum);
   });
-  const $orderButton = document.querySelector(`#ascend-btn`)
+  const $orderButton = $sortForm.querySelector(`#ascend-btn`)
+  console.log($orderButton);
   $orderButton.addEventListener("click", (event) => {
     const formData = new FormData($sortForm);
     const order = formData.get(`order`);
