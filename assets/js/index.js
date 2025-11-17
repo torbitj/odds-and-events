@@ -78,7 +78,7 @@ const sortManyTimes = (num) => {
 }
 // Create LIs for the corresponding list
 const createLIs = (array) => {
-  const newLIs = array.map((num) => `<li>${num}</li>`);
+  const newLIs = array.map((num) => `<li>${num}  </li>`);
   return newLIs;
 }
 // Component Functions
