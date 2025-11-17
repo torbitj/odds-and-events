@@ -85,3 +85,29 @@ select {
   display: flex;
   justify-content: center;
 }
+
+@media screen and (max-width: 798px) {
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+  }
+  
+  .sort-input,
+  #form-and-btns,
+  #form-and-btns form {
+    flex-direction: column;
+  }
+
+  #ascending {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  button,
+  form {
+    width: 100%;
+  }
+}
