@@ -86,6 +86,10 @@ select {
   justify-content: center;
 }
 
+button:hover {
+  background-color: #1F49AD;
+}
+
 @media screen and (max-width: 798px) {
   h1 {
     text-align: center;
