@@ -81,6 +81,13 @@ const createLIs = (array) => {
   const newLIs = array.map((num) => `<li>${num}</li>`);
   return newLIs;
 }
+// Clear all arrays
+const clearNums = () => {
+  state.bank = [];
+  state.odd = [];
+  state.even = [];
+  render();
+}
 // Component Functions
 // Form Component
 const NumberForm = () => {
@@ -239,6 +246,15 @@ const NumberList = (name) => {
   // Return the new list
   return $list;
 }
+// Create clear button componenet
+const ClearButton = () => {
+  const $clearBtn = document.createElement(`button`);
+  $clearBtn.innerHTML = `Clear All Numbers`;
+  $clearBtn.addEventListener("click", (event) => {
+    clearNums();
+  })
+  return $clearBtn;
+}
 // Render new elements to the DOM
 const render = () => {
   // Select the main using id app
@@ -257,7 +273,10 @@ const render = () => {
   <h2>Odds</h2>
   <OddNumbers></OddNumbers>
   <h2>Evens</h2>
-  <EvenNumbers></EvenNumbers>`;
+  <EvenNumbers></EvenNumbers>
+  <section id="clear">
+    <ClearButton></ClearButton
+  </section>`;
   // Replace placeholders with component functions
   document.querySelector(`#number-form`).replaceWith(NumberForm());
   document.querySelector(`Sort1`).replaceWith(SortOne());
@@ -267,6 +286,7 @@ const render = () => {
   document.querySelector(`OddNumbers`).replaceWith(NumberList(`odd`));
   document.querySelector(`EvenNumbers`).replaceWith(NumberList(`even`));
   document.querySelector(`AddRandom`).replaceWith(RandomNumBtn());
+  document.querySelector(`ClearButton`).replaceWith(ClearButton());
 }
 
 render();
