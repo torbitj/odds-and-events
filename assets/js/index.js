@@ -11,6 +11,7 @@ const state = {
 // Add number to bank name
 const addTobank = (num) => {
   state.bank.push(num);
+  console.log(state);
   render();
 }
 // Add random number to bank
@@ -74,22 +75,32 @@ const NumberForm = () => {
     event.preventDefault();
     // Variables to store input value
     const formData = new FormData(event.target);
-    const input = formData.get(`new-number`);
+    const input = formData.get(`new-numbers`);
+    // console.log(input);
+    let inputArray = null;
     // Cannot input empty string
     if (input === ``) {
       return;
     }
     else {
-      const numArray = input.split(`,`);
+      inputArray = input.split(`,`);
     }
     // Convert to number and add to the bank state variable
-    if (numArray.length === 1) {
+    if (inputArray.length === 1) {
       let newNum = Number(numArray[0]);
       addTobank(newNum);
     } else {
-
+      for (let i = 0; i < inputArray.length; i++) {
+        const currVal = inputArray[i];
+        if (isNaN(currVal)) {
+          alert(`${currVal} is not a number, please try again`);
+          render();
+          return;
+        }
+      }
+      const numArray = inputArray.map((num) => Number(num));
+      numArray.forEach((num) => addTobank(num));
     }
-
   });
   // Return form element
   return $form;
