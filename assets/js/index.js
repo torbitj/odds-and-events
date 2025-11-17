@@ -192,7 +192,7 @@ const SortForm = () => {
   $orderButton.addEventListener("click", (event) => {
     const formData = new FormData($sortForm);
     const order = formData.get(`order`);
-    console.log(order);
+    orderList(order);
   });
   // Return the sort form
   return $sortForm;
