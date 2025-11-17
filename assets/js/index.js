@@ -175,7 +175,7 @@ const SortForm = () => {
   // Create elements of form
   $sortForm.innerHTML = `
   <fieldset class="sort-input">
-    <label class-"sort-input">
+    <label class="sort-input">
       How many numbers do you want to sort?&nbsp;
       <input id="sort-input" name="sort" type="number" min="1" />
     </label>
