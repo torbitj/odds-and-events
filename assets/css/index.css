@@ -47,6 +47,10 @@ input {
   height: 1.4em;
 }
 
+select {
+  height: 2em;
+}
+
 .sort-input {
   display: flex;
   align-items: center;
