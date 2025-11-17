@@ -1,5 +1,5 @@
 :root {
-  --spacing: 3px;
+  --spacing: 5px;
   --font: 1.25em;
 }
 
@@ -9,6 +9,12 @@ body {
 
 form {
   font-size: var(--font);
+  display: flex;
+}
+
+label {
+  display: flex;
+  align-items: center;
 }
 
 ul {
@@ -28,10 +34,6 @@ li {
 
 button {
   margin: var(--spacing);
-  font-size: var(--font);
-}
-
-form button {
   font-size: 1em;
 }
 
@@ -41,14 +43,27 @@ fieldset {
   border: none;
 }
 
+input {
+  height: 1.4em;
+}
+
 .sort-input {
   display: flex;
   align-items: center;
 }
 
+.form-btn {
+  font-size: 0.8em;
+}
+
 #form-and-btns {
   padding: var(--spacing);
   display: flex;
+  align-items: center;
+}
+
+#form-and-btns form {
+  align-items: center;
 }
 
 #sort-form {

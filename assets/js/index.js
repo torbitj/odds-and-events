@@ -92,7 +92,7 @@ const NumberForm = () => {
     Add a number to bank:
     <input id="input" name="new-numbers" />
   </label>
-  <button class="add-btn" type="submit">Add Number</button>
+  <button class="form-btn" type="submit">Add Number</button>
   `;
   // Add event listener
   $form.addEventListener("submit", (event) => {
@@ -175,7 +175,7 @@ const SortForm = () => {
       How many numbers do you want to sort?
       <input id="sort-input" name="sort" type="number" min="1" />
     </label>
-    <button class="sort-btn" type="submit">Sort This Many Numbers</button>
+    <button class="form-btn" type="submit">Sort This Many Numbers</button>
   </fieldset>
   <fieldset id="ascending">
     <label>
