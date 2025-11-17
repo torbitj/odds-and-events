@@ -12,6 +12,10 @@ ul {
   flex-direction: row;
 }
 
+li {
+  padding-right: 15px;
+}
+
 button {
   margin: var(--spacing);
 }
