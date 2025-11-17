@@ -4,15 +4,33 @@ const state = {
   // Odd numbers
   odd: [],
   // Even numbers
-  even: []
+  even: [],
+  // Order display, acending or descending
+  order: `ascending`
 }
 
 // Helper Functions
 // Add number to bank name
 const addTobank = (num) => {
   state.bank.push(num);
-  console.log(state);
+  orderList(state.order)
   render();
+}
+
+const orderList = (newOrder) => {
+  state.order = newOrder;
+  const { order } = state;
+  for (array in state) {
+    if (array === `bank` || array === `odd` || array === `even`) {
+      if (order === `ascending`) {
+        state[array].sort((a, b) => a - b);
+      }
+      else {
+        state[array].sort((a, b) => b - a);
+      }
+    }
+  }
+  render()
 }
 // Add random number to bank
 const randomNum = () => {
@@ -41,6 +59,7 @@ const sortOneNum = () => {
   else {
     state.even.push(numToSort);
   }
+  orderList(state.order);
   // Re render the page with updated state
   render();
 }
@@ -154,7 +173,15 @@ const SortForm = () => {
     How many numbers do you want to sort?
     <input id="sort-input" name="sort" type="number" min="1" />
   </label>
-  <button class="add-btn" type="submit">Sort this many numbers</button>
+  <button class="sort-btn" type="submit">Sort This Many Numbers</button>
+  <label>
+    Choose Ascending or Descending Order:
+    <select name="order" id="order">
+      <option value="null"></option>
+      <option value="ascending">Ascending</option>
+      <option value="descending">Descending</option>
+    </select>
+  </label>
   `;
   // Add event listener
   $sortForm.addEventListener("submit", (event) => {
@@ -179,6 +206,14 @@ const SortForm = () => {
     // Call sort function to sort input number of times
     sortManyTimes(inputNum);
   });
+  const $selection = $sortForm.querySelector(`#order`);
+  $selection.addEventListener("change", (event) => {
+    const order = event.target.value;
+    console.log(order);
+    if (order !== `null`) {
+      orderList(order);
+    }
+  })
   // Return the sort form
   return $sortForm;
 }
@@ -198,7 +233,6 @@ const NumberList = (name) => {
   else {
     listItems = createLIs(state.even);
   }
-  listItems.sort((a, b) => a - b);
   $list.innerHTML = listItems.join(``);
   // Return the new list
   return $list;
@@ -225,11 +259,11 @@ const render = () => {
   document.querySelector(`#number-form`).replaceWith(NumberForm());
   document.querySelector(`Sort1`).replaceWith(SortOne());
   document.querySelector(`SortAll`).replaceWith(SortAll());
+  document.querySelector(`#sort-form`).replaceWith(SortForm());
   document.querySelector(`NumberBank`).replaceWith(NumberList(`bank`));
   document.querySelector(`OddNumbers`).replaceWith(NumberList(`odd`));
   document.querySelector(`EvenNumbers`).replaceWith(NumberList(`even`));
   document.querySelector(`AddRandom`).replaceWith(RandomNumBtn());
-  document.querySelector(`#sort-form`).replaceWith(SortForm());
 }
 
 render();
