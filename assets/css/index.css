@@ -1,9 +1,14 @@
 :root {
   --spacing: 3px;
+  --font: 1.25em;
 }
 
 body {
   background-color: #EBF0FF;
+}
+
+form {
+  font-size: var(--font);
 }
 
 ul {
@@ -23,6 +28,11 @@ li {
 
 button {
   margin: var(--spacing);
+  font-size: var(--font);
+}
+
+form button {
+  font-size: 1em;
 }
 
 fieldset {
