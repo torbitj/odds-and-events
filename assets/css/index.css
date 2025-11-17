@@ -1,26 +1,36 @@
+:root {
+  --spacing: 3px;
+}
+
+body {
+  background-color: #EBF0FF;
+}
+
 ul {
   list-style-type: none;
 }
 
 button {
-  margin: 3px;
+  margin: var(--spacing);
 }
 
 fieldset {
-  padding: 3px;
+  padding: var(--spacing);
+  margin: 0;
   border: none;
 }
 
+.sort-input {
+  display: flex;
+  align-items: center;
+}
+
 #form-and-btns {
+  padding: var(--spacing);
   display: flex;
 }
 
 #sort-form {
   display: flex;
   flex-direction: column;
-}
-
-.sort-input {
-  display: flex;
-  align-items: center;
 }
