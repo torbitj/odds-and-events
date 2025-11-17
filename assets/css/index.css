@@ -1,0 +1,80 @@
+:root {
+  --spacing: 5px;
+  --font: 1.25em;
+}
+
+body {
+  background-color: #EBF0FF;
+}
+
+form {
+  font-size: var(--font);
+  display: flex;
+}
+
+label {
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  height: 3em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color:  #2B5FDA;
+  border-radius: 15px;
+  color: #EBF0FF;
+}
+
+li {
+  padding-right: 15px;
+}
+
+button {
+  margin: var(--spacing);
+  padding: var(--spacing);
+  font-size: 1em;
+  background-color: #2B5FDA;
+  color: #EBF0FF;
+  border-radius: 15px;
+}
+
+fieldset {
+  padding: var(--spacing);
+  margin: 0;
+  border: none;
+}
+
+input {
+  height: 1.4em;
+}
+
+select {
+  height: 2em;
+}
+
+.sort-input {
+  display: flex;
+  align-items: center;
+}
+
+.form-btn {
+  font-size: 0.8em;
+}
+
+#form-and-btns {
+  padding: var(--spacing);
+  display: flex;
+  align-items: center;
+}
+
+#form-and-btns form {
+  align-items: center;
+}
+
+#sort-form {
+  display: flex;
+  flex-direction: column;
+}
