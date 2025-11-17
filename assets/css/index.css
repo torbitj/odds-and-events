@@ -6,6 +6,21 @@ button {
   margin: 3px;
 }
 
+fieldset {
+  padding: 3px;
+  border: none;
+}
+
 #form-and-btns {
   display: flex;
+}
+
+#sort-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sort-input {
+  display: flex;
+  align-items: center;
 }

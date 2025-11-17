@@ -170,19 +170,23 @@ const SortForm = () => {
   $sortForm.id = `sort-form`;
   // Create elements of form
   $sortForm.innerHTML = `
-  <label>
-    How many numbers do you want to sort?
-    <input id="sort-input" name="sort" type="number" min="1" />
-  </label>
-  <button class="sort-btn" type="submit">Sort This Many Numbers</button>
-  <label>
-    Choose Ascending or Descending Order:
-    <select name="order" id="order">
-      <option value="null"></option>
-      <option value="ascending">Ascending</option>
-      <option value="descending">Descending</option>
-    </select>
-  </label>
+  <fieldset class="sort-input">
+    <label class-"sort-input">
+      How many numbers do you want to sort?
+      <input id="sort-input" name="sort" type="number" min="1" />
+    </label>
+    <button class="sort-btn" type="submit">Sort This Many Numbers</button>
+  </fieldset>
+  <fieldset id="ascending">
+    <label>
+      Choose Ascending or Descending Order:
+      <select name="order" id="order">
+        <option value="null"></option>
+        <option value="ascending">Ascending</option>
+        <option value="descending">Descending</option>
+      </select>
+    </label>
+  </fieldset>
   `;
   // Add event listener
   $sortForm.addEventListener("submit", (event) => {
