@@ -34,7 +34,11 @@ li {
 
 button {
   margin: var(--spacing);
+  padding: var(--spacing);
   font-size: 1em;
+  background-color: #2B5FDA;
+  color: #EBF0FF;
+  border-radius: 15px;
 }
 
 fieldset {
