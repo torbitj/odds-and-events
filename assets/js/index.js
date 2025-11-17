@@ -243,6 +243,8 @@ const NumberList = (name) => {
     listItems = createLIs(state.even);
   }
   $list.innerHTML = listItems.join(``);
+  // Adjust height to fit content
+  $list.style.height = `fit-content`;
   // Return the new list
   return $list;
 }
