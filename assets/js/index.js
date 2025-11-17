@@ -102,6 +102,17 @@ const NumberForm = () => {
   // Return form element
   return $form;
 }
+// Sort form component
+const SortForm = () => {
+  const $sortForm = document.createElement(`form`);
+  $sortForm.innerHTML = `
+  <label>
+    How many numbers do you want to sort?
+    <input id="sort-input name="sort" />
+  </label>
+  <button class="add-btn" type="submit">Sort this many numbers</button>
+  `
+}
 // Sort one button component
 const SortOne = () => {
   // Create new button element and add class
