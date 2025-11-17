@@ -198,6 +198,7 @@ const NumberList = (name) => {
   else {
     listItems = createLIs(state.even);
   }
+  listItems.sort((a, b) => a - b);
   $list.innerHTML = listItems.join(``);
   // Return the new list
   return $list;
