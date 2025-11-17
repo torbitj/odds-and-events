@@ -81,6 +81,12 @@ const createLIs = (array) => {
   const newLIs = array.map((num) => `<li>${num}</li>`);
   return newLIs;
 }
+// Clear all arrays
+const clearNums = () => {
+  state.bank = [];
+  state.odd = [];
+  state.even = [];
+}
 // Component Functions
 // Form Component
 const NumberForm = () => {
