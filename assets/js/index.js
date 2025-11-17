@@ -108,10 +108,23 @@ const SortForm = () => {
   $sortForm.innerHTML = `
   <label>
     How many numbers do you want to sort?
-    <input id="sort-input name="sort" />
+    <input id="sort-input name="sort" type="number" min="1" />
   </label>
   <button class="add-btn" type="submit">Sort this many numbers</button>
-  `
+  `;
+  // Add event listener
+  $sortForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const inputNum = Number(formData.get(`sort`));
+    if (inputNum > state.bank.length) {
+      alert(`Cannot be greater than current bank!`);
+      render();
+      return;
+    }
+    sortManyTimes(inputNum);
+  });
+  return $sortForm;
 }
 // Sort one button component
 const SortOne = () => {
