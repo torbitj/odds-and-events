@@ -86,6 +86,7 @@ const clearNums = () => {
   state.bank = [];
   state.odd = [];
   state.even = [];
+  render();
 }
 // Component Functions
 // Form Component
@@ -252,6 +253,7 @@ const ClearButton = () => {
   $clearBtn.addEventListener("click", (event) => {
     clearNums();
   })
+  return $clearBtn;
 }
 // Render new elements to the DOM
 const render = () => {
@@ -284,6 +286,7 @@ const render = () => {
   document.querySelector(`OddNumbers`).replaceWith(NumberList(`odd`));
   document.querySelector(`EvenNumbers`).replaceWith(NumberList(`even`));
   document.querySelector(`AddRandom`).replaceWith(RandomNumBtn());
+  document.querySelector(`ClearButton`).replaceWith(ClearButton());
 }
 
 render();
