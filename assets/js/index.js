@@ -14,7 +14,6 @@ const state = {
 const addTobank = (num) => {
   state.bank.push(num);
   orderList(state.order)
-  console.log(state);
   render();
 }
 
@@ -60,6 +59,7 @@ const sortOneNum = () => {
   else {
     state.even.push(numToSort);
   }
+  orderList(state.order);
   // Re render the page with updated state
   render();
 }
