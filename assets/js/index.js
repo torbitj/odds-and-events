@@ -4,7 +4,9 @@ const state = {
   // Odd numbers
   odd: [],
   // Even numbers
-  even: []
+  even: [],
+  // Order display, acending or descending
+  order: `ascending`
 }
 
 // Helper Functions
@@ -13,6 +15,11 @@ const addTobank = (num) => {
   state.bank.push(num);
   console.log(state);
   render();
+}
+
+const orderList = (order) => {
+  state.order = order;
+  render()
 }
 // Add random number to bank
 const randomNum = () => {
@@ -161,7 +168,6 @@ const SortForm = () => {
       <option value="ascending">Ascending</option>
       <option value="descending">Descending</option>
     </select>
-    <button id="ascend-btn" class="sort-btn" type="button">Reorder Numbers</button>
   </label>
   `;
   // Add event listener
@@ -187,13 +193,11 @@ const SortForm = () => {
     // Call sort function to sort input number of times
     sortManyTimes(inputNum);
   });
-  const $orderButton = $sortForm.querySelector(`#ascend-btn`)
-  console.log($orderButton);
-  $orderButton.addEventListener("click", (event) => {
-    const formData = new FormData($sortForm);
-    const order = formData.get(`order`);
-    orderList(order);
-  });
+  const $selection = $sortForm.querySelector(`#order`);
+  $selection.addEventListener("change", (event) => {
+    orderList(event.target.value);
+    console.log(state)
+  })
   // Return the sort form
   return $sortForm;
 }
@@ -213,7 +217,11 @@ const NumberList = (name) => {
   else {
     listItems = createLIs(state.even);
   }
-  listItems.sort((a, b) => a - b);
+  if (state.order === `ascending`) {
+    listItems.sort((a, b) => a - b);
+  } else {
+    listItems.sort((a, b) => b - a);
+  }
   $list.innerHTML = listItems.join(``);
   // Return the new list
   return $list;
@@ -240,11 +248,11 @@ const render = () => {
   document.querySelector(`#number-form`).replaceWith(NumberForm());
   document.querySelector(`Sort1`).replaceWith(SortOne());
   document.querySelector(`SortAll`).replaceWith(SortAll());
+  document.querySelector(`#sort-form`).replaceWith(SortForm());
   document.querySelector(`NumberBank`).replaceWith(NumberList(`bank`));
   document.querySelector(`OddNumbers`).replaceWith(NumberList(`odd`));
   document.querySelector(`EvenNumbers`).replaceWith(NumberList(`even`));
   document.querySelector(`AddRandom`).replaceWith(RandomNumBtn());
-  document.querySelector(`#sort-form`).replaceWith(SortForm());
 }
 
 render();
