@@ -245,6 +245,14 @@ const NumberList = (name) => {
   // Return the new list
   return $list;
 }
+// Create clear button componenet
+const ClearButton = () => {
+  const $clearBtn = document.createElement(`button`);
+  $clearBtn.innerHTML = `Clear All Numbers`;
+  $clearBtn.addEventListener("click", (event) => {
+    clearNums();
+  })
+}
 // Render new elements to the DOM
 const render = () => {
   // Select the main using id app
