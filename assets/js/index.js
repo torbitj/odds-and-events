@@ -78,7 +78,7 @@ const sortManyTimes = (num) => {
 }
 // Create LIs for the corresponding list
 const createLIs = (array) => {
-  const newLIs = array.map((num) => `<li>${num}  </li>`);
+  const newLIs = array.map((num) => `<li>${num}</li>`);
   return newLIs;
 }
 // Component Functions
@@ -89,7 +89,7 @@ const NumberForm = () => {
   // Fill form element
   $form.innerHTML = `
   <label>
-    Add a number to bank:
+    Add a number to bank:&nbsp;
     <input id="input" name="new-numbers" />
   </label>
   <button class="form-btn" type="submit">Add Number</button>
@@ -131,7 +131,6 @@ const NumberForm = () => {
 const SortOne = () => {
   // Create new button element and add class
   const $sortOneButton = document.createElement(`button`);
-  $sortOneButton.classList.add(`sort-btn`);
   $sortOneButton.innerHTML = `Sort 1`;
   // Call sort one function when clicked
   $sortOneButton.addEventListener("click", (event) => {
@@ -144,7 +143,6 @@ const SortOne = () => {
 const SortAll = () => {
   // Create new button element and add class
   const $sortAllButton = document.createElement(`button`);
-  $sortAllButton.classList.add(`sort-btn`);
   $sortAllButton.innerHTML = `Sort All`;
   // Call sort all function when clicked
   $sortAllButton.addEventListener("click", (event) => {
@@ -156,7 +154,6 @@ const SortAll = () => {
 // Generate random number button
 const RandomNumBtn = () => {
   const $addRandomBtn = document.createElement(`button`);
-  $addRandomBtn.classList.add(`add-btn`);
   $addRandomBtn.innerHTML = `Add Random Number`;
   $addRandomBtn.addEventListener("click", (event) => {
     randomNum();
@@ -172,14 +169,14 @@ const SortForm = () => {
   $sortForm.innerHTML = `
   <fieldset class="sort-input">
     <label class-"sort-input">
-      How many numbers do you want to sort?
+      How many numbers do you want to sort?&nbsp;
       <input id="sort-input" name="sort" type="number" min="1" />
     </label>
     <button class="form-btn" type="submit">Sort This Many Numbers</button>
   </fieldset>
   <fieldset id="ascending">
     <label>
-      Choose Ascending or Descending Order:
+      Choose Ascending or Descending Order:&nbsp;
       <select name="order" id="order">
         <option value="null"></option>
         <option value="ascending">Ascending</option>
