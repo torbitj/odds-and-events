@@ -157,7 +157,7 @@ const SortAll = () => {
 const RandomNumBtn = () => {
   const $addRandomBtn = document.createElement(`button`);
   $addRandomBtn.classList.add(`add-btn`);
-  $addRandomBtn.innerHTML = `Add Randome Number`;
+  $addRandomBtn.innerHTML = `Add Random Number`;
   $addRandomBtn.addEventListener("click", (event) => {
     randomNum();
   })
