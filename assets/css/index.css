@@ -8,8 +8,13 @@ body {
 
 ul {
   list-style-type: none;
+  height: 3em;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  background-color:  #2B5FDA;
+  border-radius: 15px;
+  color: #EBF0FF;
 }
 
 li {
